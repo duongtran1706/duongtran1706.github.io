@@ -1,5 +1,5 @@
 ## Devployment
-<!-- * Tìm hiểu về kubernet, và consul trong kubernet
+* Tìm hiểu về kubernet, và consul trong kubernet
   * Hiểu được cơ chế cũa k8s 
   * StatefulSets ?
 * round-robin.
