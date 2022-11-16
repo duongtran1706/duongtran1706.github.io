@@ -63,7 +63,7 @@
 - Redis (redis)
 - Prometheus (prom-client)
 - Env: Linux
-- 
+<!-- - 
 ##  IP Access (môi trường UAT)
 - 10.12.23.40:31333 (KAFKA uat)
 - 10.12.50.7:3308 (ecomv2 DB uat)
@@ -91,4 +91,4 @@ Password: 123456
 https://promotion-data-sync-uat.finviet.com.vn/
 
 10.11.23.60:32018 (portal data sync)
-
+ -->
