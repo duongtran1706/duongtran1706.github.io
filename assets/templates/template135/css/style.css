@@ -621,3 +621,6 @@ border-left: 5px solid red;
        top: 62px!important;
    }
 }
+.ratio-9x16 {
+  --bs-aspect-ratio: 178.25%;
+}
