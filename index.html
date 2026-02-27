@@ -136,7 +136,6 @@
                 photoGalleries.push({ src: path, thumb: path, subHtml: subHtml });
                 var div = document.createElement('div');
                 div.className = "col-6 gallery-item section-sub-title mb-2 btn-see-more-gallery";
-                div.setAttribute('data-aos', i % 2 === 0 ? 'fade-left' : 'fade-right');
                 div.setAttribute('data-index', String(i));
                 var img = document.createElement('img');
                 img.src = path;
@@ -244,7 +243,7 @@
         <div class="story-content">
           <div class="timeline">
             <div class="outer">
-              <div class="timeline-card" data-aos="fade-right">
+              <div class="timeline-card">
                 <div class="info">
                   <span class="date">26/12/2025</span>
                   <h3 class="title">Bạn có tin vào tình yêu online không?</h3>
@@ -258,7 +257,7 @@
                   </div>
                 </div>
               </div>
-              <div class="timeline-card" data-aos="fade-left">
+              <div class="timeline-card">
                 <div class="info">
                   <span class="date">10/02/2026</span>
                   <h3 class="title">Lời tỏ tình vụng về ^^</h3>
@@ -271,7 +270,7 @@
                   </div>
                 </div>
               </div>
-              <div class="timeline-card" data-aos="fade-right">
+              <div class="timeline-card">
                 <div class="info">
                   <span class="date">10/02/2026</span>
                   <h3 class="title">Phút giây nhận lời yêu</h3>
@@ -286,7 +285,7 @@
                   </div>
                 </div>
               </div>
-              <div class="timeline-card" data-aos="fade-left">
+              <div class="timeline-card">
                 <div class="info">
                   <span class="date">25/02/2026</span>
                   <h3 class="title">Ngày nước mắt em rơi</h3>

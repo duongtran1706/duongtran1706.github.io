@@ -24,9 +24,27 @@ body {
   overflow: visible;
 }
 
-/* Đảm bảo timeline không bị cắt bởi overflow (viền, chấm tròn vươn ra ngoài) */
+/* Desktop: wrapper rộng, không dùng max-width hẹp của template (575px) */
+@media screen and (min-width: 769px) {
+  .wrapper {
+    max-width: 900px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Timeline: nội dung nằm trong khung, padding cho chấm tròn/viền template */
 .story-section .container-fluid {
-  overflow: visible !important;
+  overflow: hidden !important;
+}
+
+.story-section .story-content,
+.story-section .timeline .outer {
+  padding-left: 42px;
+  padding-right: 42px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* Floating decorative hearts */
@@ -606,31 +624,33 @@ body {
 
 .story-section {
   padding: 4rem 0 !important;
-  overflow: visible !important;
+  overflow: hidden !important;
 }
 
 .story-section .timeline-card {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: box-shadow 0.25s ease-out;
   border-radius: 20px;
   overflow: hidden;
+  will-change: auto;
 }
 
 .story-section .timeline-card:hover {
-  transform: translateX(8px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(92, 74, 58, 0.15);
+  box-shadow: 0 12px 32px rgba(92, 74, 58, 0.18);
 }
 
 .story-section .timeline-card .info {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   padding: 1.5rem;
-  border: 1px solid rgba(201, 169, 98, 0.2);
-  transition: border-color 0.3s ease, background 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 1px rgba(201, 169, 98, 0.15);
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .story-section .timeline-card:hover .info {
-  border-color: rgba(201, 169, 98, 0.4);
+  border-color: rgba(255, 255, 255, 1);
   background: #fff;
+  box-shadow: 0 0 0 1px rgba(201, 169, 98, 0.25);
 }
 
 .story-section .timeline .date {
@@ -640,7 +660,7 @@ body {
 
 .story-section .timeline .title {
   color: var(--text-warm) !important;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .story-section .timeline-card:hover .title {
@@ -649,15 +669,18 @@ body {
 
 .timeline-card .img-holder {
   box-shadow: 0 10px 30px rgba(92, 74, 58, 0.15);
-  transition: transform 0.4s ease;
-}
-
-.story-section .timeline-card:hover .img-holder img {
-  transform: scale(1.05);
+  overflow: hidden;
+  border: 3px solid #fff;
+  border-radius: 12px;
 }
 
 .timeline-card .img-holder img {
-  transition: transform 0.4s ease;
+  transition: transform 0.3s ease-out;
+  will-change: auto;
+}
+
+.story-section .timeline-card:hover .img-holder img {
+  transform: scale(1.03);
 }
 
 /* Footer */
@@ -718,8 +741,11 @@ body {
   color: var(--gold) !important;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ========== RESPONSIVE: CHỈ ÁP DỤNG TRÊN MOBILE, KHÔNG ẢNH HƯỞNG DESKTOP ========== */
+/* Base styles ở trên = desktop. Các rule dưới chỉ có hiệu lực khi max-width thỏa mãn (mobile/tablet). */
+
+/* Tablet & mobile (≤768px) */
+@media screen and (max-width: 768px) {
   .heart-float {
     font-size: 14px;
     opacity: 0.1;
@@ -731,8 +757,10 @@ body {
   .main_image_area .main_image:hover {
     transform: scale(1.01);
   }
-  .story-section .timeline-card:hover {
-    transform: translateX(4px) scale(1.01);
+  .story-section .story-content,
+  .story-section .timeline .outer {
+    padding-left: 5px;
+    padding-right: 5px;
   }
   .wave-divider {
     height: 40px;
@@ -749,7 +777,8 @@ body {
   }
 }
 
-@media (max-width: 576px) {
+/* Mobile nhỏ (≤576px) */
+@media screen and (max-width: 576px) {
   .wrap-name--script {
     font-size: 1.6rem !important;
   }
