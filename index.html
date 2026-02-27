@@ -374,6 +374,11 @@
     if (typeof toastMessageWishes === 'function') {
       toastMessageWishes(dataWishes, 'wishes');
     }
+    // Bỏ data-aos-easing để không dùng easing mặc định
+    (function () {
+      document.body.removeAttribute('data-aos-easing');
+      document.querySelectorAll('[data-aos-easing]').forEach(function (el) { el.removeAttribute('data-aos-easing'); });
+    })();
   </script>
 </body>
 

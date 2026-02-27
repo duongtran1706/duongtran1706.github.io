@@ -731,6 +731,15 @@ body {
   transform: none !important;
 }
 
+/* Bỏ hiệu ứng chạy header – header luôn ẩn, không transition/animation */
+#header.site-header,
+header.site-header {
+  display: none !important;
+  visibility: hidden !important;
+  transition: none !important;
+  animation: none !important;
+}
+
 /* Nav / offcanvas link hover */
 .offcanvas-menu .nav-link {
   transition: padding-left 0.3s ease, color 0.3s ease;
